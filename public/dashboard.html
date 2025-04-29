@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepTrak - Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <h1>KeepTrak</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span id="user-name">Loading...</span>
+                </div>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="welcome-section">
+                <h2>Welcome, <span id="welcome-name">Fitness Enthusiast</span>!</h2>
+                <p class="subtitle">What would you like to track today?</p>
+            </div>
+
+            <div class="tracking-options">
+                <div class="track-card" id="workout-card">
+                    <div class="card-icon">💪</div>
+                    <h3>Workout Trak</h3>
+                    <p>Log your strength training, sets, reps, and weights</p>
+                    <div class="card-categories">
+                        <span class="category">Push</span>
+                        <span class="category">Pull</span>
+                        <span class="category">Legs</span>
+                    </div>
+                    <button class="btn-track">Start Tracking</button>
+                </div>
+
+                <div class="track-card" id="cardio-card">
+                    <div class="card-icon">🏃</div>
+                    <h3>Cardio Trak</h3>
+                    <p>Log your cardio sessions, distance, time, and calories</p>
+                    <div class="card-categories">
+                        <span class="category">Running</span>
+                        <span class="category">Cycling</span>
+                        <span class="category">Swimming</span>
+                    </div>
+                    <button class="btn-track">Start Tracking</button>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-empty">
+                    <p>No recent activities yet. Start tracking to see your progress!</p>
+                </div>
+                <!-- Activity items will be added here dynamically -->
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2023 KeepTrak. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script>
+        // Grab name from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+      
+        if (name) {
+          document.getElementById('welcome-message').textContent = `Welcome, ${name}!`;
+        } else {
+          document.getElementById('welcome-message').textContent = 'Welcome, Guest!';
+        }
+      </script>
+</body>
+</html>

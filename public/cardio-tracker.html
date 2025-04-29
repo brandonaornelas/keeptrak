@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepTrak - Cardio Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/cardio-tracker.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <h1>KeepTrak</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span id="user-name">Loading...</span>
+                </div>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <a href="/dashboard.html" class="back-link">← Back to Dashboard</a>
+            
+            <div class="tracker-container">
+                <h2>Cardio Tracker</h2>
+                
+                <form class="cardio-form" id="cardio-form">
+                    <div class="form-group">
+                        <label for="cardio-date">Date</label>
+                        <input type="date" id="cardio-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardio-type">Activity Type</label>
+                        <select id="cardio-type" required>
+                            <option value="">Select activity type</option>
+                            <option value="running">Running</option>
+                            <option value="cycling">Cycling</option>
+                            <option value="swimming">Swimming</option>
+                            <option value="walking">Walking</option>
+                            <option value="elliptical">Elliptical</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="cardio-duration">Duration (minutes)</label>
+                            <input type="number" id="cardio-duration" min="1" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="cardio-distance">Distance (miles)</label>
+                            <input type="number" id="cardio-distance" min="0" step="0.1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="cardio-calories">Calories Burned</label>
+                            <input type="number" id="cardio-calories" min="0">
+                        </div>
+                        <div class="form-field">
+                            <label for="cardio-heart-rate">Avg. Heart Rate (bpm)</label>
+                            <input type="number" id="cardio-heart-rate" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardio-notes">Notes</label>
+                        <input type="text" id="cardio-notes" placeholder="Optional notes about this activity">
+                    </div>
+                    
+                    <button type="submit" class="btn-save">Save Cardio Activity</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2023 KeepTrak. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="js/cardio-tracker.js"></script>
+</body>
+</html>

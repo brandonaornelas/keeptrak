@@ -61,27 +61,35 @@ app.post('/api/signup', async (req, res) => {
 
 // Login Route
 app.post('/api/login', async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.json({ success: false, message: 'Invalid email or password.' });
+    const { email, password } = req.body;
+  
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.json({ success: false, message: 'Invalid email or password.' });
+      }
+  
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.json({ success: false, message: 'Invalid email or password.' });
+      }
+  
+      console.log('✅ User logged in:', email);
+  
+      // Important: Send full user info back
+      res.json({ 
+        success: true, 
+        message: 'Login successful', 
+        user: {
+          name: user.name,
+          email: user.email
+        }
+      });
+    } catch (err) {
+      console.error('❌ Login error:', err);
+      res.json({ success: false, message: 'Error logging in' });
     }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.json({ success: false, message: 'Invalid email or password.' });
-    }
-
-    console.log('✅ User logged in:', email);
-
-    res.json({ success: true, message: 'Login successful', user: { email } });
-  } catch (err) {
-    console.error('❌ Login error:', err);
-    res.json({ success: false, message: 'Error logging in' });
-  }
-});
+  });
 
 // Health check (for deployment, optional)
 app.get('/api/health', (req, res) => {

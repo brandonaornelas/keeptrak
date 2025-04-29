@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepTrak - Workout Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/workout-tracker.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <h1>KeepTrak</h1>
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span id="user-name">Loading...</span>
+                </div>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <a href="/dashboard.html" class="back-link">← Back to Dashboard</a>
+            
+            <div class="tracker-container">
+                <h2>Workout Tracker</h2>
+                
+                <form class="workout-form" id="workout-form">
+                    <div class="form-group">
+                        <label for="workout-date">Date</label>
+                        <input type="date" id="workout-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-type">Workout Type</label>
+                        <select id="workout-type" required>
+                            <option value="">Select workout type</option>
+                            <option value="push">Push</option>
+                            <option value="pull">Pull</option>
+                            <option value="legs">Legs</option>
+                            <option value="full-body">Full Body</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workout-notes">Notes</label>
+                        <input type="text" id="workout-notes" placeholder="Optional notes about this workout">
+                    </div>
+                    
+                    <div class="exercise-container">
+                        <div class="exercise-header">
+                            <h3>Exercises</h3>
+                            <button type="button" class="btn-add-exercise" id="add-exercise">+ Add Exercise</button>
+                        </div>
+                        
+                        <div id="exercises-list">
+                            <!-- Exercise items will be added here -->
+                            <div class="exercise-item">
+                                <div class="exercise-row">
+                                    <div class="exercise-field">
+                                        <label for="exercise-1-name">Exercise</label>
+                                        <input type="text" id="exercise-1-name" placeholder="e.g. Bench Press" required>
+                                    </div>
+                                </div>
+                                <div class="exercise-row">
+                                    <div class="exercise-field">
+                                        <label for="exercise-1-sets">Sets</label>
+                                        <input type="number" id="exercise-1-sets" min="1" value="3" required>
+                                    </div>
+                                    <div class="exercise-field">
+                                        <label for="exercise-1-reps">Reps</label>
+                                        <input type="number" id="exercise-1-reps" min="1" value="10" required>
+                                    </div>
+                                    <div class="exercise-field">
+                                        <label for="exercise-1-weight">Weight (lbs)</label>
+                                        <input type="number" id="exercise-1-weight" min="0" step="2.5" placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-save">Save Workout</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2023 KeepTrak. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/workout-tracker.js"></script>
+</body>
+</html>
