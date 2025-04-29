@@ -1,0 +1,237 @@
+:root {
+    --dark-teal: #003135;
+    --medium-teal: #024950;
+    --rust: #964734;
+    --bright-teal: #0FA4AF;
+    --light-cyan: #AFDD5E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--dark-teal);
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 600px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Panel - Image and Features */
+.left-panel {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 49, 53, 0.8) 0%, rgba(2, 73, 80, 0.7) 100%);
+    z-index: 1;
+}
+
+.left-panel .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-panel h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.features {
+    margin-top: auto;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.feature-text {
+    font-size: 1rem;
+}
+
+/* Right Panel - Forms */
+.right-panel {
+    flex: 1;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #777;
+    font-weight: 600;
+    position: relative;
+}
+
+.tab.active {
+    color: var(--bright-teal);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--bright-teal);
+}
+
+form {
+    display: none;
+}
+
+.active-form {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--bright-teal);
+}
+
+.forgot-password {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--bright-teal);
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--bright-teal);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: var(--medium-teal);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+    }
+
+    .left-panel {
+        display: none;
+    }
+
+    .right-panel {
+        padding: 30px 20px;
+    }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 480px) {
+    body {
+        background-color: white;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .right-panel {
+        padding: 20px;
+    }
+}
